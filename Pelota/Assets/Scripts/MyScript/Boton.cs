@@ -7,7 +7,8 @@ public class Boton : MonoBehaviour
 {
 
     public void PlayScene() {
-        SceneManager.LoadScene("Menu 3D");
+        SceneManager.LoadScene("Mapa01");
+       
     }
 
     public void Quitgame() {
