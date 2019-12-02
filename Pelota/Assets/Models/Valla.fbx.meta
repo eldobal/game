@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 6e02a4a1c14e63b4fbedbe1b6be1206a
+guid: 0dbf4ccb4ae531445b08a327ce5139d4
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mvalla
+    second: {fileID: 2100000, guid: c871a75f05c689c449806d809c5a7a25, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

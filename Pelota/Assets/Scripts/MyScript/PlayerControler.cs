@@ -10,18 +10,20 @@ public class PlayerControler : MonoBehaviour
     public float VelocidadImpulso;
     private int coldown;
     private int tranformacion;
+    private int contador;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         coldown = 0;
         tranformacion = 0;
+        contador = 0;
     }
     private void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-
+       
         Vector3 movement = new Vector3(moveHorizontal,0.0f,moveVertical);
         
         
@@ -48,9 +50,11 @@ public class PlayerControler : MonoBehaviour
         }
         if (tranformacion == 0)
         {
-          //  transform.localScale = new Vector3(1, 1, 1);
+           transform.localScale = new Vector3(1, 1, 1);
         }
-        
+
+       
+
     }
     void OnTriggerEnter(Collider other)
     {
@@ -58,8 +62,22 @@ public class PlayerControler : MonoBehaviour
         {
             
             other.gameObject.SetActive(false);
+            /*
+            contador = 180; while (0)
+            {
+                contador--;
+
+            }
+            if (contador == 0)
+            {
+            Setcontador(other);
+            }
+            
+    */
             transform.localScale = new Vector3(2, 2, 2);
-            tranformacion = 600;
+            tranformacion = 300;
+            
+            
         }
         if (other.gameObject.CompareTag("Player"))
         {
@@ -68,6 +86,17 @@ public class PlayerControler : MonoBehaviour
            Vector3 mov = rba.position;
             rba.AddForce(mov*20*VelocidadImpulso*speed);
 
+        }
+    }
+
+    void Setcontador(Collider other)
+    {
+        if (contador ==0) {
+
+            if (other.gameObject.CompareTag("Pick Up"))
+            {
+                other.gameObject.SetActive(true);
+            }
         }
     }
    
