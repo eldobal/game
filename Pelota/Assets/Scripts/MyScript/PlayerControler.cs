@@ -60,24 +60,12 @@ public class PlayerControler : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Pick Up"))
         {
-            
-            other.gameObject.SetActive(false);
-            /*
-            contador = 180; while (0)
-            {
-                contador--;
+            Destroy(other.gameObject);
 
-            }
-            if (contador == 0)
-            {
-            Setcontador(other);
-            }
-            
-    */
+           // other.gameObject.SetActive(false);
             transform.localScale = new Vector3(2, 2, 2);
             tranformacion = 300;
-            
-            
+           
         }
         if (other.gameObject.CompareTag("Player"))
         {
@@ -89,16 +77,7 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    void Setcontador(Collider other)
-    {
-        if (contador ==0) {
-
-            if (other.gameObject.CompareTag("Pick Up"))
-            {
-                other.gameObject.SetActive(true);
-            }
-        }
-    }
+   
    
 
 }
