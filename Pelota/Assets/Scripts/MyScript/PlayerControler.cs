@@ -75,9 +75,10 @@ public class PlayerControler : MonoBehaviour
             rba.AddForce(mov*20*VelocidadImpulso*speed);
 
         }
+        
     }
 
-   
+    
    
 
 }
