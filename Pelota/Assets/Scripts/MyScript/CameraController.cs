@@ -1,22 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    // public Transform target;
+    public float smoothSpeed = 0.125f;
+    public Vector3 offset;
 
-    public GameObject player;
-    private Vector3 offset;
-
-    // Start is called before the first frame update
-    void Start()
+    public GameObject target;
+    private void FixedUpdate()
     {
-        offset = transform.position - player.transform.position;
-    }
+        Rigidbody rb = target.GetComponent<Rigidbody>();
+        Vector3 desiredPosition = rb.position + offset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        transform.position = smoothedPosition;
+        transform.LookAt(rb.transform);
 
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        transform.position = player.transform.position + offset;
     }
 }
